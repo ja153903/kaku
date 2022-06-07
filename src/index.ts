@@ -4,7 +4,7 @@ dotenv.config();
 
 import express from "express";
 
-import { postRouter } from "./posts";
+import { postRouter } from "~/posts";
 
 const app = express();
 
