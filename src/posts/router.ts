@@ -5,7 +5,7 @@ import { createPostSchemaValidation } from "./validation";
 
 const router = express.Router();
 
-router.get("/posts/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   const id = parseInt(req.params.id);
   const post = await service.getPostById(id);
 
@@ -20,7 +20,7 @@ router.get("/posts/:id", async (req, res) => {
   }
 });
 
-router.post("/posts", createPostSchemaValidation, async (req, res) => {
+router.post("/", createPostSchemaValidation, async (req, res) => {
   const body = req.body;
   const post = await service.createPost(body);
 

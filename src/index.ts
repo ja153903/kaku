@@ -9,7 +9,7 @@ import { postRouter } from "~/posts";
 const app = express();
 
 app.use(express.json());
-app.use("/api/post", postRouter);
+app.use("/api/v1/posts", postRouter);
 
 const PORT = process.env.PORT ?? 3000;
 
