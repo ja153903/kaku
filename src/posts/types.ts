@@ -3,3 +3,8 @@ export interface CreatePost {
   content?: string;
   category: string;
 }
+
+export interface UpdatePost {
+  title: string;
+  content: string;
+}

@@ -1,18 +1,23 @@
 import { prisma } from "~/db";
-import type { CreatePost } from "./types";
+import type { CreatePost, UpdatePost } from "./types";
 
-class PostService {
-  static async getPostById(id: number) {
-    return await prisma.post.findUnique({
-      where: { id },
-    });
-  }
-
-  static async createPost(post: CreatePost) {
-    return await prisma.post.create({
-      data: post,
-    });
-  }
+async function getPostById(id: number) {
+  return await prisma.post.findUnique({
+    where: { id },
+  });
 }
 
-export default PostService;
+async function createPost(post: CreatePost) {
+  return await prisma.post.create({
+    data: post,
+  });
+}
+
+async function updatePost(id: number, post: UpdatePost) {
+  return await prisma.post.update({
+    where: { id },
+    data: post,
+  });
+}
+
+export { getPostById, createPost, updatePost };
