@@ -4,7 +4,7 @@ import type { ObjectSchema } from "joi";
 export function validateSchemaMiddleware(schema: ObjectSchema) {
   return function (req: Request, res: Response, next: NextFunction) {
     const body = req.body;
-    const { value, error } = schema.validate(body);
+    const { error } = schema.validate(body);
     if (!error) {
       next();
     } else {
